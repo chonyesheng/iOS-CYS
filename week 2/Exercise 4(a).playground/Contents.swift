@@ -1,3 +1,5 @@
 import UIKit
 
-var greeting = "Hello, playground"
+var number = 22
+let numberAsString = String(number)
+print("the number \(number) has been converted to a string: \"\(numberAsString)\".")
