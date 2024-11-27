@@ -1,3 +1,7 @@
 import UIKit
 
-var greeting = "Hello, playground"
+let numbers = [3, 5, 1, 4]
+
+for number in numbers {
+    print(String(repeating: "*", count: number))
+}
