@@ -1,30 +1,17 @@
 import UIKit
 
-func printHalfDiamondPattern() {
-    /*
+func printHalfDiamondPattern(maxStar: Int) {
     let n = 4
     
-    for i in 1...n {
+    for i in 1...maxStar {
         print(String(repeating: "*", count: i))
     }
-    for i in (1..<n).reversed() {
+    for i in (1..<maxStar).reversed() {
         print(String(repeating: "*", count: i))
     }
-     */
+     
 }
 
-func HalfDiamondPattern() {
-    
-    var num = 4
-    
-    for i in 1...num {
-        print("*", terminated: "")
-    }
-    print("")
-}
-for i in 1...num-1 {
-    for _ in 1...num-1 {
-    print("*", terminated: "")
-}
-print("")
-num -= 1
+let maxStar = 4
+printHalfDiamondPattern(maxStar: maxStar)
+
