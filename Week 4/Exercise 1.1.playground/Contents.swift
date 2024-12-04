@@ -1,7 +1,10 @@
 import UIKit
 
-for number in 1...50 {
-    if number % 2 != 0 {
-        print(number)
+func printOddNumbers(start: Int, end: Int) {
+    
+    for number in start...end {
+        if number % 2 != 0 {
+            print(number)
+        }
     }
 }
