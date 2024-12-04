@@ -1,11 +1,14 @@
 import UIKit
 
-let numbers = [3, 5, 1, 4]
-
-for loop in numbers {
-    for i in 1...loop {
-        print("*", terminator: "")
+func printAsterisks(for numbers: [Int]) {
+    for number in numbers {
+        for _ in 1...number {
+            print("*", terminator: "")
+        }
+        
+        print("")
     }
-    print("")
 }
 
+let numbers = [3,5,1,4]
+printAsterisks(for: numbers)
