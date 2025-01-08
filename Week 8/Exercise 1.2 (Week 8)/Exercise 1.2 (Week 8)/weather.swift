@@ -11,6 +11,7 @@ struct Weather: View {
 var name: String
 var image: String
 var tempature: String
+    var backgroundColor: Color
 
     
     var body: some View {
@@ -18,15 +19,17 @@ var tempature: String
             Text(name)
                 .font(.title)
                 .fontWeight(.bold)
+                .foregroundColor(.black)
             
             Image(systemName: image)
                 .symbolRenderingMode(.multicolor)
                 .font(.largeTitle)
-                .foregroundStyle(.tint)
+                .foregroundColor(.black)
             
             Text(tempature)
                 .font(.title2)
                 .fontWeight(.semibold)
+                .foregroundColor(.blue)
             
         }
         .padding()
@@ -37,11 +40,11 @@ var tempature: String
 }
 
 #Preview {
-    Weather(name: "MON", image: "moon.stars", tempature: "33C")
-    Weather(name: "TUE", image: "moon.stars", tempature: "33C")
-    Weather(name: "WED", image: "moon.stars", tempature: "33C")
-    Weather(name: "THU", image: "moon.stars", tempature: "33C")
-    Weather(name: "FRI", image: "moon.stars", tempature: "33C")
-    Weather(name: "MON", image: "moon.stars", tempature: "33C")
+    Weather(name: "MON", image: "moon.stars", tempature: "33C", backgroundColor: .blue)
+    Weather(name: "TUE", image: "moon.stars", tempature: "33C", backgroundColor: .blue)
+    Weather(name: "WED", image: "moon.stars", tempature: "33C", backgroundColor: .blue)
+    Weather(name: "THU", image: "moon.stars", tempature: "33C", backgroundColor: .blue)
+    Weather(name: "FRI", image: "moon.stars", tempature: "33C", backgroundColor: .blue)
+    Weather(name: "SAT", image: "moon.stars", tempature: "33C", backgroundColor: .black)
         
 }
