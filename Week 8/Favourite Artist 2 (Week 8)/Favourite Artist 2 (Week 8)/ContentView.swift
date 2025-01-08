@@ -1,86 +1,47 @@
 //
 //  ContentView.swift
-//  Favourite Artist 2 (Week 8)
+//  FavouriteArtist
 //
-//  Created by labuser on 08/01/2025.
+//  Created by labuser on 18/12/2024.
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                VStack {
+                    HStack {
+                        Spacer()
+                        Image(systemName: "bell.badge.fill")
+                            .padding(.all)
+                            .imageScale(.large)
+                            .foregroundStyle(.tint)
+                        Image(systemName: "person.fill")
+                            .imageScale(.large)
+                            .foregroundStyle(.tint)
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+                .padding()
+                
+                
+                
+                HStack {
+                    Text("Favourite Artist")
+                        .fontWeight(.semibold)
+                        .font(.largeTitle)
+                        .padding()
+                    Spacer()
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+                ScrollView{
+                    ArtistCard(name: ("ROSE"), color: "ROSE", image: "ROSE")
+                    ArtistCard(name: ("YANGMI"), color: "YANGMI", image: "YANGMI")
+                    ArtistCard(name: ("GEM"), color: "GEM", image: "GEM")
+                    ArtistCard(name: ("ZHAO LUSI"), color: "ZHAO LUSI", image: "ZHAO LUSI")
                 }
             }
-            Text("Select an item")
         }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-}
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
+                
+                
 #Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-}
+    ContentView()
+        }
