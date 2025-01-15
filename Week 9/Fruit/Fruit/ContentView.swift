@@ -6,18 +6,18 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
+    let fruits = ["Apple", "Cake", "Carrot"]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List(fruits, id: \.self) { fruit in
+            Text(fruit)
         }
-        .padding()
     }
 }
+
 
 #Preview {
     ContentView()

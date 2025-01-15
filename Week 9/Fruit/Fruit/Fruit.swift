@@ -7,12 +7,33 @@
 
 import SwiftUI
 
-struct Fruit: View {
+struct FruitView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            HStack {
+                Image(systemName: "apple.logo")
+                Text("Apple")
+                Spacer()
+            }
+            .padding()
+            
+            HStack {
+                Image(systemName: "birthday.cake.fill")
+                Text("Cake")
+                Spacer()
+            }
+            .padding()
+            
+            HStack {
+                Image(systemName: "carrot.fill")
+                Text("Carrot")
+                Spacer()
+            }
+            .padding()
+        }
     }
 }
 
 #Preview {
-    Fruit()
+    FruitView()
 }
