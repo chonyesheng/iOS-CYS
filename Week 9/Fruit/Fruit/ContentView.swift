@@ -18,6 +18,8 @@ struct ContentView: View {
             }
             .sheet(isPresented: $isSheetPresented) {
                 Text("How are you??")
+            .presentationDetents([.height(300), .large])
+
             }
         }
     }
