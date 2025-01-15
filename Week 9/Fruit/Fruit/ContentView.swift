@@ -9,15 +9,19 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
-    let fruits = ["Apple", "Cake", "Carrot"]
-    
+    @State private var isSheetPresented = false
+
     var body: some View {
-        List(fruits, id: \.self) { fruit in
-            Text(fruit)
+        VStack {
+            Button("Show Sheet") {
+                isSheetPresented = true
+            }
+            .sheet(isPresented: $isSheetPresented) {
+                Text("How are you??")
+            }
         }
     }
 }
-
 
 #Preview {
     ContentView()
