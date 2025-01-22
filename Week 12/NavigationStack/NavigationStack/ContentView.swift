@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     let asia = ["Tokyo", "Singapore", "Shang Hai"]
     let europe = ["New York", "London", "Canada"]
+    @State private var isSheetPresented = false
     
     var body: some View {
         NavigationStack {
@@ -38,12 +39,20 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        print("Add button tapped")
+                        isSheetPresented = true
+                        
                     }){
+                        
                         Text("+")
-                            .font(.system(size: 30))
+                            .font(.system(size: 50))
                     }
                 }
+            }
+            .sheet(isPresented: $isSheetPresented) {
+                Text("This application is created by Chon Ye Sheng")
+                    .presentationDetents([.height(300), .large])
+                    .font(.headline)
+                    .padding()
             }
         }
     }
