@@ -58,6 +58,15 @@ struct ContentView: View {
     }
 }
 
+struct WeatherDetailsView: View {
+    let city: String
+    let forecast: [Weather] = {
+        
+    }
+}
+
+
+
 #Preview {
     ContentView()
 }
