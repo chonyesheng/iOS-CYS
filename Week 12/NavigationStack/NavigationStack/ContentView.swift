@@ -8,14 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
+    let asia = ["Tokyo", "Singapore", "Shang Hai"]
+    let europe = ["New York", "London", "Canada"]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                Section(header: Text("Asia")) {
+                    ForEach(asia, id: \.self) { asia in
+                        NavigationLink {
+                            Text("Item's Detail \(asia)")
+                        } label: {
+                            Text(asia)
+                        }
+                    }
+                }
+                
+                Section(header: Text("Europe")) {
+                    ForEach(europe, id: \.self) { europe in
+                        NavigationLink {
+                            Text("Item's Detail \(europe)")
+                        } label: {
+                            Text(europe)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Cities")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        print("Add button tapped")
+                    }){
+                        Text("+")
+                            .font(.system(size: 30))
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 

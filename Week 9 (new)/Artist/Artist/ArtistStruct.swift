@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-struct ArtistStruct: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+struct Artist: Identifiable {
+    var id = UUID()
+    var name: String
+    var imageName: String
+    var description: String
+    var websiteURL: String
 }
 
-#Preview {
-    ArtistStruct()
-}
