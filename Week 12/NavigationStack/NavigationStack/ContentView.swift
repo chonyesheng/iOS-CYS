@@ -56,7 +56,7 @@ struct ContentView: View {
             }
             .sheet(isPresented: $isSheetPresented) {
                 Text("This application is created by Chon Ye Sheng")
-                    .presentationDetents([.height(30), .large])
+                    .presentationDetents([.height(300), .large])
                     .font(.headline)
                     .padding()
             }
