@@ -45,8 +45,8 @@ struct FoodView: View {
             ("Steak & Cheese", 22.5),
             ("Subway Club", 18.5),
             ("Turkey Breast & Chicken Slice", 32.5),
-            ("3 Cookies", 7.6),
-            ("6 Cookies", 15.8),
+            ("Vanilla Cookies", 7.6),
+            ("Black Forest Chocolate Cookies", 15.8),
             ("Mac & Cheese Bowl", 11.5),
             ("Cheesy Meat Bowl", 9.3),
             ("Black Forest Ham", 15.7)
