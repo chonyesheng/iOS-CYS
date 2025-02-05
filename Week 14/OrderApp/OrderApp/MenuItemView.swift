@@ -34,6 +34,6 @@ struct MenuItemView: View {
 }
 
 #Preview {
-    let newItem = MenuItem(name: "Pizza", type: "Food", price: 12.50)
+    let newItem = MenuItem(name: "Roasted Chicken", type: "Food", price: 30.80)
     MenuItemView(item: newItem)
 }
