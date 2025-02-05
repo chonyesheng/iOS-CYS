@@ -1,24 +1,17 @@
 //
 //  ContentView.swift
-//  NavigationStack
+//  Weather
 //
-//  Created by labuser on 22/01/2025.
+//  Created by labuser on 05/02/2025.
 //
 
 import SwiftUI
-
-struct Weather: Identifiable {
-    let id = UUID()
-    let day: String
-    let tempature: String
-}
 
 struct ContentView: View {
     let asia = ["Tokyo", "Singapore", "Shanghai"]
     let europe = ["New York", "London", "Canada"]
     
     @State private var searchText = ""
-    
     @State private var isSheetPresented = false
     
     var filteredAsia: [String] {
@@ -44,7 +37,7 @@ struct ContentView: View {
                     Section(header: Text("Asia")) {
                         ForEach(filteredAsia, id: \.self) { city in
                             NavigationLink {
-                                WeatherDetailsView(city: city)
+                                WeatherDetailsView(city: city) // Navigate to weather details view
                             } label: {
                                 Text(city)
                             }
@@ -54,7 +47,7 @@ struct ContentView: View {
                     Section(header: Text("Europe")) {
                         ForEach(filteredEurope, id: \.self) { city in
                             NavigationLink {
-                                WeatherDetailsView(city: city)
+                                WeatherDetailsView(city: city) // Navigate to weather details view
                             } label: {
                                 Text(city)
                             }
@@ -83,41 +76,6 @@ struct ContentView: View {
         }
     }
 }
-
-struct WeatherDetailsView: View {
-    let city: String
-    
-    let forecast: [Weather] = [
-        Weather(day: "Monday", tempature: "25°C"),
-        Weather(day: "Tuesday", tempature: "27°C"),
-        Weather(day: "Wednesday", tempature: "33°C"),
-        Weather(day: "Thursday", tempature: "20°C"),
-        Weather(day: "Friday", tempature: "25°C"),
-        Weather(day: "Saturday", tempature: "23°C"),
-        Weather(day: "Sunday", tempature: "23°C")
-    ]
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("7 Day Forecast for \(city)")
-                .font(.title2)
-                .padding(.bottom, 10)
-            
-            List(forecast) { dayForecast in
-                HStack {
-                    Text(dayForecast.day)
-                        .font(.headline)
-                    Spacer()
-                    Text(dayForecast.tempature)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-            }
-        }
-        .padding()
-    }
-}
-
 
 #Preview {
     ContentView()
