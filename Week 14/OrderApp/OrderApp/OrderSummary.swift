@@ -6,13 +6,32 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct OrderSummary: View {
+struct OrderSummaryView: View {
+    @Query var orderItems: [MenuItem]
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+        VStack {
+            List(orderItems.filter { $0.isAddedToOrder }) { item in
+                HStack {
+                    Text(item.name)
+                    Spacer()
+                    Text("$\(item.price, specifier: "%.2f")")
+                }
+            }
 
-#Preview {
-    OrderSummary()
+            Text("Total: $\(calculateOrderTotal(), specifier: "%.2f")")
+                .font(.headline)
+                .padding()
+        }
+    }
+
+    private func calculateOrderTotal() -> Double {
+        var total: Double = 0
+        for item in orderItems.filter({ $0.isAddedToOrder }) {
+            total += item.price
+        }
+        return total
+    }
 }
