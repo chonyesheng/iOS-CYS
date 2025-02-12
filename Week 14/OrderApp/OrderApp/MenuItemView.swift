@@ -12,10 +12,21 @@ struct MenuItemView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
+            
+            if let imageName = item.imageName,
+               let uiImage = UIImage(named: imageName) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .clipped()
+            }
+            
+            
             Text(item.name)
                 .font(.headline)
 
-            Text("$\(item.price, specifier: "%.2f")")
+            Text("RM\(item.price, specifier: "%.2f")")
                 .font(.subheadline)
 
             Button(action: {

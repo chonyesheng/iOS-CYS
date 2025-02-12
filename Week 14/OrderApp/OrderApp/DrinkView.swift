@@ -29,31 +29,31 @@ struct DrinkView: View {
     }
 
     private func preloadMenuItems() {
-        let sampleDrinks: [(name: String, price: Double)] = [
-            ("Cola", 2.5),
-            ("Sprite", 2.0),
-            ("Pepsi", 2.0),
-            ("Orange Juice", 3.5),
-            ("Iced Tea", 2.2),
-            ("Lemonade", 2.0),
-            ("Coffee", 3.5),
-            ("Tea", 2.5),
-            ("100 Plus", 2.5),
-            ("Mineral Water", 1.0),
-            ("Watermelon Juice", 3.0),
-            ("Apple Juice", 3.0),
-            ("Mango Juice", 2.5),
-            ("Soymilk", 2.5),
-            ("Milk", 2.7),
-            ("Smoothie", 7.9),
-            ("Milkshake", 6.9),
-            ("Frappucino", 12.0),
-            ("Kambucha Tea", 7.5),
-            ("RedBull", 3.5)
+        let sampleDrinks: [(name: String, price: Double, imageName: String?)] = [
+            ("Cola", 2.5, "Cola"),
+            ("Sprite", 2.0, "Sprite"),
+            ("Pepsi", 2.0, "Pepsi"),
+            ("Orange Juice", 3.5, "Orange Juice"),
+            ("Iced Tea", 2.2, "Iced Tea"),
+            ("Lemonade", 2.0, "Lemonade"),
+            ("Coffee", 3.5, "Coffee"),
+            ("Tea", 2.5, "Tea"),
+            ("100 Plus", 2.5, "100 Plus"),
+            ("Mineral Water", 1.0, "Mineral Water"),
+            ("Watermelon Juice", 3.0, "Watermelon Juice"),
+            ("Apple Juice", 3.0, "Apple Juice"),
+            ("Mango Juice", 2.5, "Mango Juice"),
+            ("Soymilk", 2.5, "Soymilk"),
+            ("Milk", 2.7, "Milk"),
+            ("Smoothie", 7.9, "Smoothie"),
+            ("Milkshake", 6.9, "Milkshake"),
+            ("Frappucino", 12.0, "Frappucino"),
+            ("Kambucha Tea", 7.5, "Kambucha Tea"),
+            ("RedBull", 3.5, "RedBull")
         ]
 
         for drink in sampleDrinks {
-            let newItem = MenuItem(name: drink.name, type: "Drink", price: drink.price)
+            let newItem = MenuItem(name: drink.name, type: "Drink", price: drink.price, imageName: drink.imageName)
             modelContext.insert(newItem)
         }
         

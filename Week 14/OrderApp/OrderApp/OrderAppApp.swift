@@ -7,16 +7,19 @@
 
 import SwiftUI
 
-import SwiftUI
-import SwiftData
-
 @main
 struct OrderAppApp: App {
+    @State private var isLoggedIn: Bool = false 
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            if isLoggedIn {
+                ContentView()
+            } else {
+                LoginView(isLoggedIn: $isLoggedIn)
+            }
         }
         .modelContainer(for: MenuItem.self)
     }
 }
-

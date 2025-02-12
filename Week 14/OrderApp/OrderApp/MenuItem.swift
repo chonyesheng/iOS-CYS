@@ -15,12 +15,14 @@ class MenuItem: Identifiable {
     var type: String // "Food" or "Drink"
     var price: Double
     var isAddedToOrder: Bool
+    var imageName: String?
 
-    init(id: UUID = UUID(), name: String, type: String, price: Double, isAddedToOrder: Bool = false) {
+    init(id: UUID = UUID(), name: String, type: String, price: Double, isAddedToOrder: Bool = false,  imageName: String? = nil) {
         self.id = id
         self.name = name
         self.type = type
         self.price = price
         self.isAddedToOrder = isAddedToOrder
+        self.imageName = imageName
     }
 }

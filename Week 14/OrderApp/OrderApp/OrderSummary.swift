@@ -17,11 +17,11 @@ struct OrderSummaryView: View {
                 HStack {
                     Text(item.name)
                     Spacer()
-                    Text("$\(item.price, specifier: "%.2f")")
+                    Text("RM\(item.price, specifier: "%.2f")")
                 }
             }
 
-            Text("Total: $\(calculateOrderTotal(), specifier: "%.2f")")
+            Text("Total: RM\(calculateOrderTotal(), specifier: "%.2f")")
                 .font(.headline)
                 .padding()
         }
