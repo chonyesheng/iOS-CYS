@@ -12,7 +12,7 @@ import Foundation
 class MenuItem: Identifiable {
     var id: UUID
     var name: String
-    var type: String // "Food" or "Drink"
+    var type: String 
     var price: Double
     var isAddedToOrder: Bool
     var imageName: String?
